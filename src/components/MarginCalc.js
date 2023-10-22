@@ -1,4 +1,5 @@
 import {useState} from "react";
+import { BiCalculator } from 'react-icons/bi';
 
 function MarginCalc() {
     const [numbers, setNumbers] = useState({
@@ -79,23 +80,60 @@ function MarginCalc() {
         return isNaN(result) ? '' : result.toFixed(2);
     }
 
+    function resetForm(e) {
+        setNumbers({
+            "costPrice": '',
+            "sellPrice": '',
+            "marginPercent": '',
+            "marginAmount": ''
+        })
+    }
+
     return (
         <div className="margin-calc">
-            <div>
-                <label htmlFor="costPrice">Cost price</label>
-                <input id="costPrice" type="number" onChange={handleOnChange} value={numbers.costPrice}/>
-            </div>
-            <div>
-                <label htmlFor="sellPrice">Sell price</label>
-                <input id="sellPrice" type="number"  onChange={handleOnChange} value={numbers.sellPrice}/>
-            </div>
-            <div>
-                <label htmlFor="marginPercent">Margin (%)</label>
-                <input id="marginPercent" type="number" onChange={handleOnChange} value={numbers.marginPercent}/>
-            </div>
-            <div>
-                <label htmlFor="marginAmount">Margin (£)</label>
-                <input id="marginAmount" type="number" onChange={handleOnChange} value={numbers.marginAmount}/>
+            <div className="row">
+                <div className="col col-md-6 offset-md-3">
+                    <h1 className="display-2 text-center mt-2"><BiCalculator /> Margin Calc</h1>
+                    <hr/>
+                    <form>
+                        <div className="row mt-3 mb-3">
+                            <label htmlFor="costPrice" className="col-4 col-md-3 offset-md-2 col-form-label col-form-label-lg text-end">Cost &pound;</label>
+                            <div className="col-8 col-md-3">
+                                <input id="costPrice" className="form-control form-control-lg" type="number" onChange={handleOnChange} value={numbers.costPrice}/>
+                            </div>
+                        </div>
+                        <div className="row mt-3 mb-3">
+                            <label htmlFor="sellPrice" className="col-4 col-md-3 offset-md-2 col-form-label col-form-label-lg text-end">Sell &pound;</label>
+                            <div className="col-8 col-md-3">
+                                <input id="sellPrice" className="form-control form-control-lg" type="number"  onChange={handleOnChange} value={numbers.sellPrice}/>
+                            </div>
+                        </div>
+                        <div className="row mt-3 mb-3">
+                            <label htmlFor="marginPercent" className="col-4 col-md-3 offset-md-2 col-form-label col-form-label-lg text-end">Margin %</label>
+                            <div className="col-8 col-md-3">
+                                <input id="marginPercent" className="form-control form-control-lg" type="number" onChange={handleOnChange} value={numbers.marginPercent}/>
+                            </div>
+                        </div>
+                        <div className="row mt-3 mb-3">
+                            <label htmlFor="marginAmount" className="col-4 col-md-3 offset-md-2 col-form-label col-form-label-lg text-end">Margin &pound;</label>
+                            <div className="col-8 col-md-3">
+                                <input id="marginAmount" className="form-control form-control-lg" type="number" onChange={handleOnChange} value={numbers.marginAmount}/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div className="row">
+                            <div className="col text-center">
+                                <button type="reset" className="btn btn-dark" onClick={resetForm}>Reset Form</button>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div className="row">
+                            <div className="col text-center">
+                                <a href="https://github.com/deanoj/margin-calc">https://github.com/deanoj/margin-calc</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     );
