@@ -69,7 +69,8 @@ function MarginCalc() {
     }
 
     function getMarginPercent(cost, sell) {
-        const result = +(((parseFloat(sell) / parseFloat(cost)) - 1.0) * 100).toFixed(2);
+        //const result = +(((parseFloat(sell) / parseFloat(cost)) - 1.0) * 100).toFixed(2);
+        const result = +(((parseFloat(sell) - parseFloat(cost)) / parseFloat(sell)) * 100).toFixed(2)
 
         return isNaN(result) ? '' : result;
     }
@@ -92,31 +93,31 @@ function MarginCalc() {
     return (
         <div className="margin-calc">
             <div className="row">
-                <div className="col col-md-6 offset-md-3">
+                <div className="col col-lg-6 offset-lg-3">
                     <h1 className="display-2 text-center mt-2"><BiCalculator /> Margin Calc</h1>
                     <hr/>
                     <form>
                         <div className="row mt-3 mb-3">
-                            <label htmlFor="costPrice" className="col-4 col-md-3 offset-md-2 col-form-label col-form-label-lg text-end">Cost &pound;</label>
-                            <div className="col-8 col-md-3">
+                            <label htmlFor="costPrice" className="col-4 col-form-label col-form-label-lg text-end">Cost &pound;</label>
+                            <div className="col-8">
                                 <input id="costPrice" className="form-control form-control-lg" type="number" onChange={handleOnChange} value={numbers.costPrice}/>
                             </div>
                         </div>
                         <div className="row mt-3 mb-3">
-                            <label htmlFor="sellPrice" className="col-4 col-md-3 offset-md-2 col-form-label col-form-label-lg text-end">Sell &pound;</label>
-                            <div className="col-8 col-md-3">
+                            <label htmlFor="sellPrice" className="col-4 col-form-label col-form-label-lg text-end">Sell &pound;</label>
+                            <div className="col-8">
                                 <input id="sellPrice" className="form-control form-control-lg" type="number"  onChange={handleOnChange} value={numbers.sellPrice}/>
                             </div>
                         </div>
                         <div className="row mt-3 mb-3">
-                            <label htmlFor="marginPercent" className="col-4 col-md-3 offset-md-2 col-form-label col-form-label-lg text-end">Margin %</label>
-                            <div className="col-8 col-md-3">
+                            <label htmlFor="marginPercent" className="col-4 col-form-label col-form-label-lg text-end">Margin %</label>
+                            <div className="col-8">
                                 <input id="marginPercent" className="form-control form-control-lg" type="number" onChange={handleOnChange} value={numbers.marginPercent}/>
                             </div>
                         </div>
                         <div className="row mt-3 mb-3">
-                            <label htmlFor="marginAmount" className="col-4 col-md-3 offset-md-2 col-form-label col-form-label-lg text-end">Margin &pound;</label>
-                            <div className="col-8 col-md-3">
+                            <label htmlFor="marginAmount" className="col-4 col-form-label col-form-label-lg text-end">Margin &pound;</label>
+                            <div className="col-8">
                                 <input id="marginAmount" className="form-control form-control-lg" type="number" onChange={handleOnChange} value={numbers.marginAmount}/>
                             </div>
                         </div>

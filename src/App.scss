@@ -1,6 +1,11 @@
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
 
 body {
   background-color: $gray-100;
   color: $gray-900;
+}
+
+input[type=number] {
+  max-width: 350px;
 }
