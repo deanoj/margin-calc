@@ -100,25 +100,25 @@ function MarginCalc() {
                         <div className="row mt-3 mb-3">
                             <label htmlFor="costPrice" className="col-4 col-form-label col-form-label-lg text-end">Cost &pound;</label>
                             <div className="col-8">
-                                <input id="costPrice" className="form-control form-control-lg" type="number" onChange={handleOnChange} value={numbers.costPrice}/>
+                                <input id="costPrice" inputMode="decimal" className="form-control form-control-lg" type="number" onChange={handleOnChange} value={numbers.costPrice}/>
                             </div>
                         </div>
                         <div className="row mt-3 mb-3">
                             <label htmlFor="sellPrice" className="col-4 col-form-label col-form-label-lg text-end">Sell &pound;</label>
                             <div className="col-8">
-                                <input id="sellPrice" className="form-control form-control-lg" type="number"  onChange={handleOnChange} value={numbers.sellPrice}/>
+                                <input id="sellPrice" inputMode="decimal" className="form-control form-control-lg" type="number"  onChange={handleOnChange} value={numbers.sellPrice}/>
                             </div>
                         </div>
                         <div className="row mt-3 mb-3">
                             <label htmlFor="marginPercent" className="col-4 col-form-label col-form-label-lg text-end">Margin %</label>
                             <div className="col-8">
-                                <input id="marginPercent" className="form-control form-control-lg" type="number" onChange={handleOnChange} value={numbers.marginPercent}/>
+                                <input id="marginPercent" inputMode="decimal" className="form-control form-control-lg" type="number" onChange={handleOnChange} value={numbers.marginPercent}/>
                             </div>
                         </div>
                         <div className="row mt-3 mb-3">
                             <label htmlFor="marginAmount" className="col-4 col-form-label col-form-label-lg text-end">Margin &pound;</label>
                             <div className="col-8">
-                                <input id="marginAmount" className="form-control form-control-lg" type="number" onChange={handleOnChange} value={numbers.marginAmount}/>
+                                <input id="marginAmount" inputMode="decimal" className="form-control form-control-lg" type="number" onChange={handleOnChange} value={numbers.marginAmount}/>
                             </div>
                         </div>
                         <hr/>
