@@ -55,6 +55,8 @@ function MarginCalc() {
                     marginPercent = getMarginPercent(costPrice, sellPrice);
                 }
                 break;
+            default:
+
         }
 
         const num = {
