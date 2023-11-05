@@ -1,5 +1,4 @@
-import {useState} from "react";
-import { BiCalculator } from 'react-icons/bi';
+import { useState } from "react";
 
 function MarginCalc() {
     const [numbers, setNumbers] = useState({
@@ -71,7 +70,6 @@ function MarginCalc() {
     }
 
     function getMarginPercent(cost, sell) {
-        //const result = +(((parseFloat(sell) / parseFloat(cost)) - 1.0) * 100).toFixed(2);
         const result = +(((parseFloat(sell) - parseFloat(cost)) / parseFloat(sell)) * 100).toFixed(2)
 
         return isNaN(result) ? '' : result;
@@ -94,50 +92,44 @@ function MarginCalc() {
 
     return (
         <div className="margin-calc">
-            <div className="row">
-                <div className="col col-lg-6 offset-lg-3">
-                    <h1 className="display-2 text-center mt-2"><BiCalculator /> Margin Calc</h1>
-                    <hr/>
-                    <form>
-                        <div className="row mt-3 mb-3">
-                            <label htmlFor="costPrice" className="col-4 col-form-label col-form-label-lg text-end">Cost &pound;</label>
-                            <div className="col-8">
-                                <input id="costPrice" inputMode="decimal" className="form-control form-control-lg" type="number" onChange={handleOnChange} value={numbers.costPrice}/>
-                            </div>
-                        </div>
-                        <div className="row mt-3 mb-3">
-                            <label htmlFor="sellPrice" className="col-4 col-form-label col-form-label-lg text-end">Sell &pound;</label>
-                            <div className="col-8">
-                                <input id="sellPrice" inputMode="decimal" className="form-control form-control-lg" type="number"  onChange={handleOnChange} value={numbers.sellPrice}/>
-                            </div>
-                        </div>
-                        <div className="row mt-3 mb-3">
-                            <label htmlFor="marginPercent" className="col-4 col-form-label col-form-label-lg text-end">Margin %</label>
-                            <div className="col-8">
-                                <input id="marginPercent" inputMode="decimal" className="form-control form-control-lg" type="number" onChange={handleOnChange} value={numbers.marginPercent}/>
-                            </div>
-                        </div>
-                        <div className="row mt-3 mb-3">
-                            <label htmlFor="marginAmount" className="col-4 col-form-label col-form-label-lg text-end">Margin &pound;</label>
-                            <div className="col-8">
-                                <input id="marginAmount" inputMode="decimal" className="form-control form-control-lg" type="number" onChange={handleOnChange} value={numbers.marginAmount}/>
-                            </div>
-                        </div>
-                        <hr/>
-                        <div className="row">
-                            <div className="col text-center">
-                                <button type="reset" className="btn btn-dark" onClick={resetForm}>Reset Form</button>
-                            </div>
-                        </div>
-                        <hr/>
-                        <div className="row">
-                            <div className="col text-center">
-                                <a href="https://github.com/deanoj/margin-calc">https://github.com/deanoj/margin-calc</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+            <div className="text-center">
+                <h1 className="text-center">Margin Calc</h1>
             </div>
+            <hr/>
+            <form>
+                <div className="row">
+                    <label htmlFor="costPrice" className="form-label">Cost &pound;</label>
+                    <div className="col">
+                        <input id="costPrice" inputMode="decimal" className="form-control" type="number" onChange={handleOnChange} value={numbers.costPrice}/>
+                    </div>
+                </div>
+                <div className="row">
+                    <label htmlFor="sellPrice" className="form-label">Sell &pound;</label>
+                    <div className="col">
+                        <input id="sellPrice" inputMode="decimal" className="form-control" type="number"  onChange={handleOnChange} value={numbers.sellPrice}/>
+                    </div>
+                </div>
+                <div className="row">
+                    <label htmlFor="marginPercent" className="form-label">Margin %</label>
+                    <div className="col">
+                        <input id="marginPercent" inputMode="decimal" className="form-control" type="number" onChange={handleOnChange} value={numbers.marginPercent}/>
+                    </div>
+                </div>
+                <div className="row">
+                    <label htmlFor="marginAmount" className="form-label">Margin &pound;</label>
+                    <div className="col">
+                        <input id="marginAmount" inputMode="decimal" className="form-control" type="number" onChange={handleOnChange} value={numbers.marginAmount}/>
+                    </div>
+                </div>
+                <hr/>
+                <div className="text-center">
+                    <button type="reset" className="btn btn-dark" onClick={resetForm}>Reset Form</button>
+                </div>
+                <hr/>
+                <div className="text-center">
+                    <a href="https://github.com/deanoj/margin-calc">https://github.com/deanoj/margin-calc</a>
+                </div>
+            </form>
         </div>
     );
 }
