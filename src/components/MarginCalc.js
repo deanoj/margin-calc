@@ -36,11 +36,11 @@ function MarginCalc() {
             case 'marginPercent':
                 marginPercent = inputValue;
                 if (costPrice) {
-                    sellPrice = (parseFloat(costPrice) * ((marginPercent / 100) + 1)).toFixed(2);
+                    sellPrice = (parseFloat(costPrice) / (1 - (marginPercent / 100))).toFixed(2);
                     marginAmount = getMarginAmount(costPrice, sellPrice);
                 }
                 else if (sellPrice) {
-                    costPrice = (parseFloat(sellPrice) / ((marginPercent / 100) + 1)).toFixed(2);
+                    costPrice = (parseFloat(sellPrice) / (1 + (marginPercent / 100))).toFixed(2);
                     marginAmount = getMarginAmount(costPrice, sellPrice);
                 }
                 break;
